@@ -6,7 +6,9 @@ print('3. Delete an entry')
 print('4. List all entries')
 print('5. Quit')
 
-#add a prompt to run again?
+#add a function prompt to run again after selection run
+#while selection != 5:
+
 phonebook = {
   'Harry': '895-3000',
   'Ron': '895-3001',
@@ -18,10 +20,10 @@ user_entry = int(input('Choose option(1-5)? '))
 if user_entry == 1:
     lookup_name = input('Enter name: ')
     for name in phonebook:
-        if name == lookup_name: #phonebook[name] = phone #
-            print(f'Match found: {phonebook[lookup_name]}')
-else:
-    print(f'Match not found.')
+        if name == lookup_name: 
+            print(f'Match found: {lookup_name}: {phonebook[lookup_name]}')
+    else:
+        print(f'Match not found.')
 
 elif user_entry == 2:
     add_name = input('Enter name: ')
