@@ -4,4 +4,6 @@ def is_even(num):
   else:
     return False
 
+#shorter code:  return(number % 2 == 0)
+
 #print(is_even(3))
