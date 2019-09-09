@@ -8,52 +8,61 @@ def show_board():
     print(f'{board[3]} | {board[4]} | {board[5]}')
     print(f'{board[6]} | {board[7]} | {board[8]}')
 
+winning_combos = ((0, 1, 2), (3, 4, 5), (6, 7, 8), 
+                    (0, 3, 6), (1, 4, 7), (2, 5, 8), 
+                    (0, 4, 8), (2, 4, 6))
+
 player = 'X'
+
+def is_game_over():
+    count = 0
+    for space in winning_combos:
+        if board(space[0]) == board(space[1]) == board(space[2]) == 'X':
+            print('Player X wins!')
+        if board(space[0]) == board(space[1]) == board(space[2]) == 'O':
+            print('Player O wins!')    
+    for space in range(9):
+        if board[space] == 'X' or board[space] == 'O':
+            count += 1
+        if count == 9:
+            print('Players have tied. Game over.')
 
 def change_player(player):
     if player == 'X':
-        player = 'O'
+        return 'O'
     elif player == 'O':
-        player = 'X'
-    
+        return 'X'
 
-def move():
-    #updated_board = []
-    location = int(input('Mark a space (1-9): '))
-    if location < 1 or location > 9:
-        location = int(input('Invalid entry. Try again (1-9): '))
-    for mark in board:
-        if mark is "X":
-            print('Space taken.')
+def move(player):
+    try:
+        location = int(input('Mark a space (1-9)'))
+        if location in board:
+            player = board[location] - 1 
         else:
-            board[location-1] = player
+            print('Space taken. Try again.')
+    except ValueError:
+        print(f'\nInvalid entry. Try again.')
     show_board()
-    change_player(player)
 
-
- 
-show_board()
+print('***********')
 print("Let's play!")
-move()
+print('***********')
+show_board()
 
-#def game_over():
-#    win()
-#    tie()
+def game_in_progress(): #while game has no winner
+    pass
 
-#while game_in_progress = True:
+while game_in_progress:
+    move(player)
+    player = change_player(player)
+    is_game_over()
 
-#def move(board, location, player):
-#   while game_in_progress:
-#       turn()
-#        change_player() 
-#    if winner == 'X' or winner == 'O':
-#        print(winner + 'won.')
-#    elif winner == None:
-#        print('Tie.') 
-#def win():
-    #check rows / columns / diagonals
-    # 
-                          
-#def tie():
-#    if 
-#    return
+    #location = int(input('Mark a space (1-9): '))
+    #while location > 1 and location > 9: #len(list) better?
+        #'Invalid entry. Try again (1-9): '))
+    #for mark in board:
+        #if mark == 'X' or mark == 'O':
+        #    print('Space taken.') #check board first```
+        #else:
+        #    board[location - 1] = player
+    #show_board()
