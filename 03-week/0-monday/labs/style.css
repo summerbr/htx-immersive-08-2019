@@ -1,5 +1,5 @@
 h1, h2, h3, h4 {
-    font-family: 'Yatra One', cursive;
+    font-family: 'Righteous', cursive;
     text-align: center;
     font-weight: 900;
     color: white;
@@ -9,8 +9,8 @@ body {
     background: url("https://blog.geocities.institute/wp-content/uploads/02.png");
     background-color: fuchsia;
 }
-p {
-    font-family: 'Chilanka', cursive;
+p, ul {
+    font-family: 'Fjalla One', sans-serif;
     line-height: 2em; 
     text-indent: 1.2em;
     margin: 2em;
@@ -29,4 +29,19 @@ aside {
     float: right;
     border: 2px groove lime;
     background-color: rgba(70, 191, 63, 0.7)
+}
+
+.aside_image {
+    float: right;
+    padding-right: 6em;
+    width: 35%;
+    height: 35%;
+}
+
+#main {
+    width: 600px;
+    margin: 0 auto;
+    padding: 0 20px 20px 20px;
+    border: 5px solid teal;
+    background: navy;
 }
