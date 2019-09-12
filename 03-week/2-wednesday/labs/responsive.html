@@ -1,0 +1,92 @@
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Practice makes Perfect</title>
+    <style>
+    body {
+        color: navy;
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        height: 100vh;
+        background-color: #ffccff;
+    }
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        height: 100vh;
+    }
+    .header {
+        display: flex;
+        justify-content: space-around;
+        padding: 5px;
+        align-items: flex-end;
+        /* max-width: 400px; */
+    }
+    .header, .footer {
+        margin: 0;
+        background-color: palevioletred;
+        color: white;
+    }
+    .section1 {
+        height: auto;
+        padding: 20px;
+        text-align: center;
+        font-weight: 700;
+        border-bottom: 2px solid teal;
+    }
+    .section2 {
+        flex-direction: row;
+        padding: 40px;
+        border-bottom: 2px solid purple;
+    }
+    .list {
+        display: flex;
+        flex-direction: row;
+    }
+    .footer {
+        text-align: center;
+        bottom: 0;
+    }
+    .section3{
+
+    }
+    @media screen and (max-width: 700px){
+    </style>
+</head>
+<body>
+    <header class="header"><h3>Our Company</h3>
+        <ul>Home</ul>
+        <ul>Products</ul>
+        <ul>Company</ul>
+        <ul>Blog</ul>
+    </header>
+    <div class="container">
+        <div class="section1"><h1>We Are Awesome<h1></h1></div>
+        <div class="section2">Awesomeness
+        <div class="list">
+            <ul>List 1
+            <li>....</li>
+            <li>...</li>
+            <li>...</li>
+        </ul>
+        <ul>List 2
+            <li>...</li>
+            <li>...</li>
+            <li>....</li>
+        </ul>
+        <ul>List 3
+            <li>...</li>
+            <li>...</li>
+            <li>...</li>
+        </ul></div>
+        </div>
+        <div class="section3">Awesome People</div>
+    </div>
+        <footer class="footer">Footer</footer>
+</body>
+</html>
