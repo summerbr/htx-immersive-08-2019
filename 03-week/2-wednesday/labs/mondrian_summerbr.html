@@ -10,30 +10,46 @@
             background-color: rgba(17, 0, 34, 0.67);
             padding: 10px;
         }
-        .shapes {
-            display: flex;;
+        .outer {
+            display: flex;
             height: 100vh;
         }
         .column {
             flex-direction: column;
+            justify-content: space-around;
+            background-color: gray;
         }
-        .large_square {
-
+        .shape {
+            /* flex-grow: 1; */
+            background-color: #fff;
+            min-width: 50px;
+            min-height: 50px;
+            margin-bottom: 5px;
+            margin-right: 5px;
         }
-        .rectangle {
-            background-color: white;
+        .yellow {
+            background-color: yellow;
         }
-        .square {
-            width:;
-            height: ;
+        .red {
+            background-color: red;
+        }
+        .blue {
+            background-color: blue;
+        }
+        .black {
+            background-color: black;
         }
     </style>
 </head>
 <body>
-    <div class="shapes">
+    <div class="outer">
         <div class="column">
-        <div class="rectangle"></div>
-    </div>
+        <div class="shape"></div>
+        <div class="yellow shape"></div>
+        </div>
+
+        <div class="column"></div>
+        <div class="column"></div>
 
     </div>
 </body>
