@@ -3,3 +3,11 @@
 // times as the input number
 //
 // Name the function "finalFunction"
+function finalFunction(num) {
+    var arr = []
+    while (num > 0) {
+        arr.push('no');
+        num --
+    }
+    return arr
+}
