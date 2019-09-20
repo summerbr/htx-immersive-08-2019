@@ -2,34 +2,58 @@
 
 // Positive Numbers
 // Write a function which takes an array of numbers as input and returns a new array containing only the positive numbers in the given array.
+var list = [0, 2, -7, 9, -28, 10]
+function positiveNumbersOnly(arr) {
+    return arr.filter(num => num > 0);
+};
+positiveNumbersOnly(list);
 
 
 // Even Numbers
 // Write a function which takes an array of numbers as input and returns a new array containing only the even numbers in the given array.
+var list = [2, 3, 5, 6, 8, 10, 11];
+function evenNumbers(arr) {
+    return arr.filter(num => num %2 == 0);
+}
+evenNumbers(list);
 
 
 // Square the Numbers
 // Write a function which takes an array of numbers as input and returns a new array containing result of squaring each of the numbers in the given array by two. Example: squareTheNumbers([1, 2, 3]) should give [1, 4, 9].
+function squareNumbers(arr) {
+    return arr.map(num => num * num);
+}
+squareNumbers([2, 3, 4]);
 
 
 // Cities 1
 // Write a function which takes an array of city objects like such:
-// var cities = [ 
-// { name: 'Los Angeles', temperature: 60.0}, 
-// { name: 'Atlanta', temperature: 52.0 }, 
-// { name: 'Detroit', temperature: 48.0 }, 
-// { name: 'New York', temperature: 80.0 } ];
+var cities = [ 
+{name: 'Los Angeles', temperature: 60.0}, 
+{name: 'Atlanta', temperature: 52.0 }, 
+{name: 'Detroit', temperature: 48.0 }, 
+{name: 'New York', temperature: 80.0 } ];
 // as input and returns a new array containing the cities whose temperature is cooler than 70 degrees.
+function coolCities(arr) {
+    return arr.filter(city => city.temperature < 70);
+}
+coolCities(cities);
 
 // Cities 2
 // Write a function which takes an array of city objects like the above problem as input and returns an array of the cities names.
+function coolCitiesNames(arr) {
+    return arr.map(city => city.name < 70);
+}
+coolCitiesNames(cities);
 
 
 // Good Job!
 // Given an array of people's names:
-// var people = [ 'Dom', 'Lyn', 'Kirk', 'Autumn', 'Trista', 'Jesslyn', 'Kevin', 'John', 'Eli', 'Juan', 'Robert', 'Keyur', 'Jason', 'Che', 'Ben' ];
+var people = [ 'Dom', 'Lyn', 'Kirk', 'Autumn', 'Trista', 'Jesslyn', 'Kevin', 'John', 'Eli', 'Juan', 'Robert', 'Keyur', 'Jason', 'Che', 'Ben' ];
 // Print out 'Good Job, {{name}}!' for each person's name, one on a line.
-
+function goodJob(arr) {
+    return arr.forEach(name) => document.write('Good job, {{name}}!');
+}
 
 // Sort an array
 // Given an array of strings such the array of names given in the previous problem, sort them by alphabetically order.
