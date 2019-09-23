@@ -6,7 +6,6 @@ function madLib(name, subject) {
 
 // Tip Calculator
 // Write a function tipAmount that is given the bill amount and the level of service (one of good, fair and poor) and returns the dollar amount for the tip. Based on:
-
 // good -> 20%
 // fair -> 15%
 // bad -> 10%
@@ -18,24 +17,28 @@ function madLib(name, subject) {
 function tipAmount(bill, service) {
     switch (service) {
         case service === fair:
-        var goodTip = bill * 15%;
+        var goodTip = bill * 0.15;
         break;
         case service === good:
-        var greatTip = bill * 20%;
+        var greatTip = bill * 0.20;
         break;
         case service === bad:
-        var fairTip = bill * 10%;
+        var fairTip = bill * 0.10;
         break;
     }
 }
+
 // Tip Calculator 2
 // Write a function totalAmount that takes the same arguments as tipAmount except it returns the total as the tip amount plus the bill amount. This function may make use of tipAmount as a sub-task.
 // > totalAmount(100, 'good') 
 // 120 
 // > totalAmount(40, 'fair') 
 // 46
-// Print Numbers
+function totalAmount(bill, service) {
+    return bill + tipAmount();
+}
 
+// Print Numbers
 // Write a function printNumbers which is given a start number and an end number. It will print the numbers from one to the other, one per line:
 // > printNumbers(1, 10) 
 // 1 
@@ -48,7 +51,9 @@ function tipAmount(bill, service) {
 // 8 
 // 9 
 // 10
+
 // Write two versions of the above function. One using a while loop and the other using a for loop.
+
 
 // Print a Square
 // Write a function printSquare which is given a size and prints a square of that size using asterisks.
@@ -58,23 +63,26 @@ function tipAmount(bill, service) {
 // ***** 
 // ***** 
 // *****
-// Print a box
 
+
+// Print a box
 // Write function printBox which is given a width and height and prints a hollow box of those given dimensions.
 // > printBox(6, 4) 
 // ****** 
 // *    * 
 // *    * 
 // ******
-// Print a Banner
 
+
+// Print a Banner
 // Write a function printBanner which is given some text and prints a banner with a border surrounding the text. The border has to stretch to the length of the text.
 // > printBanner('Welcome to DigitalCrafts') 
 // **************************** 
 // * Welcome to DigitalCrafts * 
 // ****************************
-// Leetspeak
 
+
+// Leetspeak
 // Write a function leetspeak which is given a string, and returns the leetspeak equivalent of the string. To convert text to its leetspeak version, make the following substitutions:
 // A => 4
 // E => 3
@@ -150,7 +158,7 @@ function letterReplace(letter) {
 //     }
 //     var gap = '';
 //     for (var i = 0; i < width - 2; i++) {
-//         gap += '';
+//         gap += ' ';
 //     }
 //     var column = marker + gap + marker;
 //     for (var i =0; i < height; i++) {
@@ -165,6 +173,3 @@ function letterReplace(letter) {
 //         }
 //     }   
 // }
-
-
-
