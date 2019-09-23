@@ -6,18 +6,51 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>BLACKJACK</title>
     <style>
+    * {
+        box-sizing: border-box;
+    }
     body {
-        background-color: palegreen;
+        font-family: 'Luckiest Guy', cursive;
+        background: linear-gradient(lightcoral, pink);
         font-weight: bolder;
+        display: flex;
+        color: white;
+        font-size: 20px;
+        /* width: 100vw; */
     }
     #table {
-
+        padding: 20%;
+        margin: 0;
+    }
+    #messages {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        text-align: center;
+        padding-bottom: 10px;
+    }
+    .hand {
+        background-color: palegoldenrod;
+        border: 1px solid orangered;
+        height: 200px;
+        width: 100vw;
+        margin: 5px 5px 15px 0;
     }
     .buttons {
-
+        text-align: center;
+    }
+    .button {
+        display: inline-flex;
+        font-size: 20px;
+        padding: 10px;
+        margin-left: 5px;
+        border: 1px solid orangered;
+        border-radius: 50%;
+        background-color:palegoldenrod;
+        align-items: center;
+    }
+    .card {
+        height: 100%;
     }
     </style>
-    <script src="blackjack.js"></script>
 </head>
 <body>
     <div id="table">
@@ -33,11 +66,12 @@
     </div>
     
     <div class="buttons">
-    <button id="deal-button">Deal</button>
-    <button id="hit-button">Hit</button>
-    <button id="stand-button">Stand</button>
+    <button id="deal-button" class="button">Deal</button>
+    <button id="hit-button" class="button">Hit</button>
+    <button id="stand-button" class="button">Stand</button>
     </div>
     
     </div> 
 </body>
+<script src="blackjack.js"></script>
 </html>
