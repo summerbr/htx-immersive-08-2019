@@ -70,6 +70,11 @@ function stand() {
             break;
         }
     }
+    if (dealerScore < 20 && playerScore < 20) {
+        playerWon = false;
+        gameOver = true;
+        banner.textContent = 'No winners. Try again!';
+    }
 }
 document.getElementById("stand-button").addEventListener('click', function () {
     stand(deck);
@@ -146,8 +151,12 @@ if (gameOver) {
         dealCards();
         getScore();
         hit();
+        stand();
     }
+    // resetGame()
 }
+
+
 // $("playAgain-button").hide();
 
 // if(gameOver) {
