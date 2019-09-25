@@ -60,7 +60,7 @@ document.getElementById('hit-button').addEventListener('click', function () {
 
 // Stand - Deal 1 card to dealer on click ---IF TIE?---
 function stand() {  
-    while (dealerScore < 17 && playerScore <= 21) {
+    while (dealerScore <= 17 && playerScore <= 21) {
         dealCards(dealerHand, 'dealer')
         getScore()
         if (dealerScore === 21) {
@@ -147,7 +147,7 @@ function showScore(person, score) {
 let gameOver = false;
 let banner = document.getElementById('messages');
 if (gameOver) {
-    while (dealerScore < playerScore && playerScore <= 21 && dealerScore <= 21){
+    while (dealerScore < playerScore && playerScore < 21 && dealerScore < 21){
         dealCards();
         getScore();
         hit();
