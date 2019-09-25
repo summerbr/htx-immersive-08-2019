@@ -3,6 +3,8 @@ let playerHand = [];
 let suits = ['hearts', 'clubs', 'spades', 'diamonds']
 let values = ['ace', 'king', 'queen', 'jack', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
 let deck = createDeck()
+let playerScore = 0;
+let dealerScore = 0;
 
 function createDeck() {
     let deck = [];
@@ -19,45 +21,62 @@ function createDeck() {
     return deck;
 }
 
-function DealCards(hand, person) {
+function dealCards(hand, person) {
     var randomCard = deck[Math.floor(Math.random() * deck.length)];
     deck.pop(randomCard);
-    CreateCard(randomCard.value + '_of_' + randomCard.suit, person)
+    createCard(randomCard.value + '_of_' + randomCard.suit, person)
     hand.push(randomCard);
     // return deck
 }
+
 // Initial Deal 2 cards to each 
-function Deal() {
-    DealCards(playerHand, 'player')
-    DealCards(dealerHand, 'dealer')
-    DealCards(playerHand, 'player')
-    DealCards(dealerHand, 'dealer')
-    GetScore()
+function deal() {
+    dealCards(playerHand, 'player')
+    dealCards(dealerHand, 'dealer')
+    dealCards(playerHand, 'player')
+    dealCards(dealerHand, 'dealer')
+    getScore()
 }
+document.getElementById('deal-button').addEventListener('click', function () {
+    deal(deck);
+});
 
 // link card & img to DOM
-function CreateCard(value, person) {
+function createCard(value, person) {
     let card = document.createElement('img');
     card.src= 'images/' + value + '.png';
     card.setAttribute('class', 'card');
     document.getElementById(person + '-hand').appendChild(card);
 }
 
-// Initial Deal /hide button after first click or timeout?
-document.getElementById('deal-button').addEventListener('click', function () {
-    Deal(deck);
-});
-
 // Hit - Deal 1 card per click to player only
-function Hit() {
-    DealCards(playerHand, 'player')
-    GetScore()
+function hit() {
+    dealCards(playerHand, 'player')
+    getScore()
 }
 document.getElementById('hit-button').addEventListener('click', function () {
-    Hit(deck);
+    hit(deck);
 }); 
 
-function GetCardValue (card) {
+// Stand - Deal 1 card to dealer on click ---IF TIE?---
+function stand() {  
+    while (dealerScore < 17 && playerScore <= 21) {
+        dealCards(dealerHand, 'dealer')
+        getScore()
+        if (dealerScore === 21) {
+            playerWon = false;
+            gameOver = true;
+            banner.textContent = 'You Lose!';
+            break;
+        }
+    }
+}
+document.getElementById("stand-button").addEventListener('click', function () {
+    stand(deck);
+});
+
+// Assign integer value to cards in array
+function getCardValue (card) {
     switch(card.value) {
         case 'ace':
             return 1; 
@@ -81,12 +100,13 @@ function GetCardValue (card) {
             return 10;
     }
 }
-function CalculatePoints(hand) {
+
+function calculatePoints(hand) {
     let score = 0;
     let hasAce = false;
     for (point = 0; point < hand.length; point++) {
         let card = hand[point];
-        score += GetCardValue(card);
+        score += getCardValue(card);
         if (card.value === 'ace') {
             hasAce = true;
         }
@@ -97,25 +117,37 @@ function CalculatePoints(hand) {
     return score;
 }
 
-function GetScore() {
-    dealerScore = CalculatePoints(dealerHand);
-    playerScore = CalculatePoints(playerHand);
-    console.log("Dealer score: " + dealerScore);
-    console.log("Player score: " + playerScore);
+function getScore() {
+    dealerScore = calculatePoints(dealerHand);
+    playerScore = calculatePoints(playerHand);
+    showScore('dealer', dealerScore + ' points');
+    showScore('player', playerScore + ' points');
+        if (playerScore > 21) {
+            playerWon = false;
+            gameOver = true;
+            banner.textContent = 'Bust!';
+        }
+        if (dealerScore > playerScore && dealerScore > 21 || playerScore === 21) {
+            playerWon = true;
+            gameOver = true;
+            banner.textContent = 'You Win!';
+        }
 }
 
+function showScore(person, score) {
+    let label = document.getElementById(person + "-points")
+    label.textContent = score
+}
+
+let gameOver = false;
 let banner = document.getElementById('messages');
-
-// Stand- Deal 1 card per click to dealer only
-function Stand() {  
-    DealCards(dealerHand, 'dealer')
-    GetScore()
+if (gameOver) {
+    while (dealerScore < playerScore && playerScore <= 21 && dealerScore <= 21){
+        dealCards();
+        getScore();
+        hit();
+    }
 }
-document.getElementById("stand-button").addEventListener('click', function () {
-    Stand(deck);
-});
-
-
 // $("playAgain-button").hide();
 
 // if(gameOver) {
