@@ -1,0 +1,12 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    background-image: url("images/color-concrete-design-122458.jpg");
+    color: blue;
+}
+.container {
+    display: flex;
+    height: 100vh;
+    margin: 0;
+}
