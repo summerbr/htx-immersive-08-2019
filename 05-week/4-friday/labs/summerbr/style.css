@@ -2,11 +2,23 @@
     box-sizing: border-box;
 }
 body {
-    background-image: url("images/color-concrete-design-122458.jpg");
+    /* background-image: url("images/color-concrete-design-122458.jpg"); */
     color: blue;
 }
 .container {
     display: flex;
     height: 100vh;
-    margin: 0;
+}
+.stop {
+    float: left;
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    background-color: lightskyblue;
+    border: 2px solid white;
+}
+li {
+    background-color: violet;
+    padding: 3px;
+    display: inline-block;
 }

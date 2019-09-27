@@ -4,8 +4,10 @@
 // Start the stopwatch with a promise
 // End the stopwatch on a random time between 1-10 seconds
 // When the stopwatch stops, display the time it took
-var stopwatch = []
 
+function stopWatch() {
+    document.getElementById("stop").
+}
 
 
 
