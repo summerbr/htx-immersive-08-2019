@@ -25,14 +25,15 @@ $.ajax({
   type: "GET",
   url: "http://www.omdbapi.com/?i=tt3896198&apikey=e03ca193",
   dataType: "JSON", // data type expected from server
-  success: function(response) {
-    console.log(response);
-    showMovieDetails(response.Title, response.Released);
-  },
+  success: onSuccess,
   error: function(error) {
     console.log("Error: " + error);
   }
 });
+
+function onSuccess(response) {
+  console.log(response)
+}
 
 function showMovieDetails(title, released) {
   var heading = $("<h1/>").text(title);
