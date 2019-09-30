@@ -10,15 +10,16 @@ body {
     height: 100vh;
 }
 .stop {
-    float: left;
     height: 200px;
     width: 200px;
     border-radius: 50%;
     background-color: lightskyblue;
     border: 2px solid white;
 }
-li {
+.time {
     background-color: violet;
+    font-weight: bolder;
+    margin: 10px 5px 5px 5px;
     padding: 3px;
     display: inline-block;
 }

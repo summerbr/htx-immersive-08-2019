@@ -58,23 +58,24 @@ document.getElementById('hit-button').addEventListener('click', function () {
     hit(deck);
 }); 
 
-// Stand - Deal 1 card to dealer on click ---IF TIE?---
+// Stand - Deal 1 card to dealer on click 
 function stand() {  
-    while (dealerScore <= 17 && playerScore <= 21) {
+    var winner = dealer;
+    while (dealerScore <= 17 && playerScore < 21) {
         dealCards(dealerHand, 'dealer')
         getScore()
         if (dealerScore === 21) {
             playerWon = false;
             gameOver = true;
-            banner.textContent = 'You Lose!';
+            banner.textContent = 'Dealer wins!';
             break;
         }
     }
-    if (dealerScore < 20 && playerScore < 20) {
-        playerWon = false;
-        gameOver = true;
-        banner.textContent = 'No winners. Try again!';
-    }
+    // if (dealerScore < 20 && playerScore < 20) {
+    //     playerWon = false;
+    //     gameOver = true;
+    //     banner.textContent = 'No winners. Try again!';
+    // }
 }
 document.getElementById("stand-button").addEventListener('click', function () {
     stand(deck);
